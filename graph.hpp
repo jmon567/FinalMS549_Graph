@@ -8,6 +8,9 @@
 #include <string>
 #include <vector>
 
+
+
+
 // Define vertex properties
 struct Station {
     std::string name;
@@ -33,5 +36,6 @@ void displayGraph(const TransportGraph& graph);
 void findShortestPath(const TransportGraph& graph, int start, int end);
 void performBFS(const TransportGraph& graph, int start);
 void findConnectedComponents(const TransportGraph& graph);
+void exportGraphToDOT(const TransportGraph& graph, const std::string& filename);
 
 #endif // GRAPH_HPP

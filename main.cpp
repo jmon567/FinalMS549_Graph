@@ -21,5 +21,9 @@ int main() {
     // Find connected components in the graph
     findConnectedComponents(graph);
 
+    // Export the graph to a DOT file for visualization
+    exportGraphToDOT(graph, "C:\\Users\jmon4\source\repos\FinalMS549_Graph\transport_network.dot");
+
     return 0;
 }
+

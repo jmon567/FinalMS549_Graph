@@ -7,6 +7,8 @@
 #include <iostream>
 #include <queue>
 #include <algorithm>
+#include <boost/graph/graphviz.hpp>
+#include <fstream>
 
 TransportGraph createGraph() {
     TransportGraph graph;
@@ -129,4 +131,13 @@ void findConnectedComponents(const TransportGraph& graph) {
         }
     }
 }
-
+void exportGraphToDOT(const TransportGraph& graph, const std::string& filename) {
+    std::ofstream file(filename);
+    boost::write_graphviz(
+        file,
+        graph,
+        boost::make_label_writer(boost::get(&Station::name, graph)),
+        boost::make_label_writer(boost::get(&Route::distance, graph))
+    );
+    file.close();
+}
